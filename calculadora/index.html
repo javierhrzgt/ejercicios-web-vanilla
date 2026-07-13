@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <form class="calculadora">
+      <div class="app-screen">
+        <output data-result="0"></output>
+      </div>
+      <div class="app-buttons">
+        <button data-value="7" type="button">7</button>
+        <button data-value="8" type="button">8</button>
+        <button data-value="9" type="button">9</button>
+        <button data-operator="divided" type="button">/</button>
+        <button data-value="4" type="button">4</button>
+        <button data-value="5" type="button">5</button>
+        <button data-value="6" type="button">6</button>
+        <button data-operator="times" type="button">*</button>
+        <button data-value="1" type="button">1</button>
+        <button data-value="2" type="button">2</button>
+        <button data-value="3" type="button">3</button>
+        <button data-operator="minus" type="button">-</button>
+        <button data-value="0" type="button">0</button>
+        <button data-value="." type="button">.</button>
+        <button data-operator="plus" type="button">+</button>
+        <button data-action="clear" type="button">C</button>
+        <button data-action="equals" type="button">=</button>
+      </div>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>

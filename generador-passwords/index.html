@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de Contraseñas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+  </head>
+  <body>
+    <div class="password-generator" id="app">
+      <h1 class="app-title">Generador de Contraseñas</h1>
+
+      <div class="field-group">
+        <div class="password-output">
+          <output id="generated-password"></output>
+          <button type="button" id="copy-btn" aria-label="Copiar Contraseña">
+            <i class="far fa-copy"></i>
+          </button>
+        </div>
+        <span id="strength-label"></span>
+      </div>
+
+      <div class="field-group">
+        <span class="length-title field-title" data-length="16">length:</span>
+        <div class="length-control range-slider" data-min="8" data-max="32">
+          <input
+            type="range"
+            name="password-length"
+            id="password-length"
+            min="8"
+            max="32"
+            value="16"
+          />
+        </div>
+      </div>
+
+      <div class="field-group">
+        <span class="settings-title field-title">Configuración</span>
+        <div class="settings">
+          <div class="setting">
+            <input type="checkbox" id="uppercase" name="mayusculas" checked />
+            <label for="uppercase">Mayúsculas</label>
+          </div>
+          <div class="setting">
+            <input type="checkbox" id="lowercase" name="minusculas" checked />
+            <label for="lowercase">Minúsculas</label>
+          </div>
+          <div class="setting">
+            <input type="checkbox" id="number" name="numeros" checked />
+            <label for="number">Números</label>
+          </div>
+          <div class="setting">
+            <input type="checkbox" id="symbols" name="simbolos" />
+            <label for="symbols">Símbolos</label>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn generate-btn" id="generate-btn">
+        Generar Contraseña
+      </button>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

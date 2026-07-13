@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body>
+    <h1>Mis Tareas</h1>
+    <form id="task-form">
+      <label for="task-input" class="visually-hidden">Nueva Tarea</label>
+      <input
+        type="text"
+        name="task-input"
+        id="task-input"
+        placeholder="Agregar una tarea"
+        autocomplete="off"
+      />
+      <button type="submit"><i data-feather="plus"></i></button>
+    </form>
+    <ul id="task-list"></ul>
+    <script src="app.js"></script>
+  </body>
+</html>
