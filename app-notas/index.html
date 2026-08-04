@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App de Notas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="app-notes">
+      <form id="form-note">
+        <label for="text-note">Ingrese el texto de la nota:</label>
+        <textarea
+          name="text-note"
+          id="text-note"
+          placeholder="Texto de la nota"
+          rows="5"
+        ></textarea>
+        <button type="submit" id="btn-add">Agregar Nota</button>
+      </form>
+      <div id="notes-container">
+        <div class="notes-card">
+          <strong>Hola mundo</strong>
+          <p>Este es un ejemplo de una Nota.</p>
+        </div>
+        <div class="notes-card">
+          <strong>Hola mundo</strong>
+          <p>Este es un ejemplo de una Nota.</p>
+        </div>
+        <div class="notes-card">
+          <strong>Hola mundo</strong>
+          <p>Este es un ejemplo de una Nota.</p>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

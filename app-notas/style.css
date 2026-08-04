@@ -1,7 +1,7 @@
 :root {
   color-scheme: light dark;
 
-  /* Acción / Marca */
+  /* acción / marca */
   --accent-default: light-dark(#00395d, #4dbaff);
   --accent-hover: light-dark(#002e4a, #7fcdff);
   --accent-active: light-dark(#00253c, #b1e1ff);
@@ -59,13 +59,13 @@
     0 8px 24px rgba(0, 0, 0, 0.55)
   );
   /* Tamaños de fuente */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
+  --size-xs: 0.75rem;
+  --size-sm: 0.875rem;
+  --size-base: 1rem;
+  --size-lg: 1.125rem;
+  --size-xl: 1.25rem;
+  --size-2xl: 1.5rem;
+  --size-3xl: 1.875rem;
   /* Pesos de fuente */
   --font-normal: 400;
   --font-medium: 500;
@@ -120,132 +120,90 @@
   padding: 0;
 }
 
-button {
-  appearance: none;
-  border: none;
-  background: none;
+ul,
+ol {
+  list-style: none;
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
   font: inherit;
-  cursor: pointer;
+  border: 0;
 }
 
 body {
-  background: var(--bg-card);
   display: flex;
-  min-height: 100vh;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  line-height: 1.5;
   font-family: "Roboto", sans-serif;
+  background: var(--bg-base);
 }
 
-.calculadora {
-  display: grid;
-  max-width: 393px;
+#app-notes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
   width: 100%;
-  background: var(--bg-base);
-  border: 1px solid var(--border-strong);
-  padding: 1.5rem;
-  gap: 1rem;
-  border-radius: 0.75rem;
-}
-.app-screen {
-  margin-top: 48px;
-  min-height: clamp(4.5rem, 10vw, 72px);
   background: var(--bg-card);
-  color: var(--text-secondary);
+  padding: var(--space-6);
+}
+
+#form-note {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  gap: var(--space-4);
+}
+
+#form-note label {
+  font-size: var(--size-lg);
+  font-weight: var(--font-semibold);
+}
+
+#form-note textarea {
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
-  padding: 1rem;
+  padding: var(--space-2);
+  resize: none;
 }
 
-.app-screen output {
-  display: block;
-  color: var(--text-primary);
-  text-align: right;
-  font-size: var(--text-3xl);
-  font-weight: var(--font-bold);
+#notes-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-4);
 }
 
-.app-screen output:empty::before {
-  content: attr(data-result);
-}
-
-.app-buttons button {
-  padding: 0.5rem;
-  font-size: var(--text-3xl);
-  font-weight: var(--font-bold);
-  border: 1px solid var(--border-strong);
-  border-radius: 100%;
+#btn-add {
   background: var(--accent-default);
   color: var(--text-inverse);
-  aspect-ratio: 1;
-
+  padding: var(--space-2);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
   &:hover {
-    background: var(--accent-hover);
     transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
+    background-color: var(--accent-hover);
   }
-
   &:active {
-    background-color: var(--accent-active);
-    transform: translateY(0);
-    box-shadow: none;
+    background: var(--accent-active);
   }
-
   &:focus-visible {
-    outline: 3px solid var(--border-focus);
-    outline-offset: 3px;
+    outline: 1px solid var(--border-focus);
   }
 }
 
-.app-buttons button[data-operator] {
-  background: var(--warning-default);
-  color: var(--text-inverse);
-
-  &:hover {
-    background: var(--warning-hover);
-  }
-
-  &:active {
-    background: var(--warning-active);
-  }
-}
-
-.app-buttons button[data-action="equals"] {
-  grid-column: 4/5;
-  background: var(--info-default);
-  color: var(--text-inverse);
-
-  &:hover {
-    background: var(--info-hover);
-  }
-
-  &:active {
-    background: var(--info-active);
-  }
-}
-
-.app-buttons button[data-action="clear"] {
-  grid-column: 3/4;
-  background: var(--danger-default);
-  color: var(--text-inverse);
-
-  &:hover {
-    background: var(--danger-hover);
-  }
-
-  &:active {
-    background: var(--danger-active);
-  }
-}
-
-.app-buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-}
-
-.app-buttons button[data-value="0"] {
-  aspect-ratio: 2/1;
-  grid-column: span 2;
-  border-radius: 999px;
+.notes-card {
+  padding: var(--space-2);
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-default);
 }
