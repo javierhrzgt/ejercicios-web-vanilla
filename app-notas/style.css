@@ -201,9 +201,52 @@ body {
 }
 
 .notes-card {
-  padding: var(--space-2);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-3);
   background: var(--bg-subtle);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-default);
+}
+
+.btn-container {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  justify-content: end;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: var(--size-xs);
+  cursor: pointer;
+  border: 0;
+  padding: var(--space-2);
+  border-radius: var(--radius-xl);
+  color: var(--text-inverse);
+}
+
+.btn-delete {
+  background: var(--danger-default);
+  &:hover {
+    background: var(--danger-hover);
+    transform: translateY(-1px);
+  }
+  &:active {
+    background: var(--danger-active);
+  }
+}
+
+.btn-edit {
+  background: var(--accent-default);
+  &:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+  }
+  &:active {
+    background: var(--accent-active);
+  }
 }
