@@ -1,4 +1,5 @@
 let notes = [];
+let editingId = null;
 
 const loadNotes = () => {
   const noteSavedString = localStorage.getItem("myNotes");
@@ -8,6 +9,9 @@ const loadNotes = () => {
 };
 
 const notesContainer = document.querySelector("#notes-container");
+const noteInput = document.querySelector("#text-note");
+const noteForm = document.querySelector("#form-note");
+const btnAddNote = document.querySelector("#btn-add");
 
 const renderNotes = () => {
   notesContainer.innerHTML = "";
@@ -46,5 +50,53 @@ const saveNotes = () => {
   localStorage.setItem("myNotes", notesToString);
 };
 
+const exitEditMode = () => {
+  editingId = null;
+  btnAddNote.textContent = "Agregar Nota";
+  noteInput.value = "";
+};
+
 loadNotes();
 renderNotes();
+
+noteForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const newNoteText = noteInput.value.trim();
+
+  if (!newNoteText) return;
+
+  if (editingId) {
+    notes.find((n) => n.id === editingId).text = newNoteText;
+  } else {
+    const newNote = { id: Date.now(), text: newNoteText };
+    notes.push(newNote);
+  }
+
+  saveNotes();
+  renderNotes();
+  exitEditMode();
+});
+
+notesContainer.addEventListener("click", (e) => {
+  const btnDelete = e.target.closest(".btn-delete");
+  const btnEdit = e.target.closest(".btn-edit");
+
+  if (btnDelete) {
+    const noteCard = btnDelete.closest(".notes-card");
+    const noteId = Number(noteCard.dataset.id);
+    notes = notes.filter((n) => n.id !== noteId);
+    saveNotes();
+    renderNotes();
+    if (editingId === noteId) {
+      exitEditMode();
+    }
+  } else if (btnEdit) {
+    const noteCard = btnEdit.closest(".notes-card");
+    editingId = Number(noteCard.dataset.id);
+
+    let noteTextEditing = notes.find((n) => n.id === editingId);
+    noteInput.value = noteTextEditing.text;
+    btnAddNote.textContent = "Guardar Cambios";
+  }
+});
