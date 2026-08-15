@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Clima</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="dashboard-app">
+      <form id="search-form">
+        <label for="text-location">Buscar ciudad:</label>
+        <div id="search-container">
+          <input
+            type="text"
+            name="text-location"
+            id="text-location"
+            placeholder="Ciudad de Guatemala"
+          />
+          <button type="submit" class="btn" id="manual-search">Buscar</button>
+          <button type="button" class="btn" id="current-location">
+            Usar Ubicación
+          </button>
+        </div>
+      </form>
+      <div id="load-container" class="state-container hidden-container">
+        Cargando...
+      </div>
+      <div id="error-container" class="state-container hidden-container">
+        Error!
+      </div>
+      <div
+        id="result-container"
+        class="state-container result-layout hidden-container"
+      >
+        Resultado
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
